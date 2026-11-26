@@ -2,6 +2,16 @@
 
 Newest first.
 
+## 2026-11-26 - Tab change published: the owner says it feels better
+
+The live app serves offline version `spaarpoes-918be91c8161`; the 40 app files and `sw.js` compared are
+identical to the PC's, and asking for `CLAUDE.local.md` at the web address still answers "not found".
+The owner's answer after the change: "Feels better".
+
+That is a person's impression, not a measurement. It was not reported how the phone picked up the new
+version, whether the light under the finger shows, or whether any lag is left. The cause of the lag is
+still not established.
+
 ## 2026-11-26 - A tapped tab answers at once
 
 **Why:** the owner reports that the app lags when switching tabs. In the code, the tapped tab only lit up
