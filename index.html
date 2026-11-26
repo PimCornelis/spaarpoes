@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- The app may only load its own files. Nothing can be fetched from or sent to another place. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Spaarpoes</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="Spaarpoes">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/kitten.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="js/ui/app.js"></script>
+</body>
+</html>

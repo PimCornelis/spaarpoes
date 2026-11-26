@@ -1,0 +1,18 @@
+# Private notes with names and folder paths. This repo is public; this file stays on the PC.
+CLAUDE.local.md
+
+# Windows and macOS clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor and tool folders on this PC
+.claude/
+.vscode/
+node_modules/
+*.log
+
+# Back-ups and exports hold real money data. They never belong in this public repo.
+spaarpoes-backup*
+spaarpoes-boekingen*
+*.csv

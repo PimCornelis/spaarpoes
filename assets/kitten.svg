@@ -1,0 +1,105 @@
+<!--
+  The Spaarpoes kitten: an original character drawn for this app.
+
+  One drawing holds all four moods. A part with class "show-content", "show-party", "show-sleepy" or
+  "show-worried" is only visible in that mood; a part without such a class is always visible.
+  Colours, poses and movement are in kitten.css. The colour values are in js/theme.js.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="kitten" data-state="content" role="img">
+  <path class="cushion" d="M20 177C20 164 56 159 100 159S180 164 180 177S144 195 100 195S20 190 20 177Z"/>
+  <path class="cushion-seam" d="M34 181C56 188 144 188 166 181"/>
+
+  <g class="cat">
+    <g class="tail">
+      <path class="tail-edge" d="M132 164C166 174 188 150 176 130C169 118 154 122 157 134"/>
+      <path class="tail-fur" d="M132 164C166 174 188 150 176 130C169 118 154 122 157 134"/>
+      <path class="tail-tip" d="M168 122C159 121 155 126 157 134"/>
+    </g>
+
+    <path class="fur outline" d="M61 171C54 137 70 110 100 110S146 137 139 171C128 178 72 178 61 171Z"/>
+    <ellipse class="light" cx="100" cy="148" rx="22" ry="23"/>
+    <path class="fur outline" d="M64 156C52 158 48 172 58 176C66 179 76 176 77 170"/>
+    <path class="fur outline" d="M136 156C148 158 152 172 142 176C134 179 124 176 123 170"/>
+
+    <g class="show-content show-sleepy show-worried">
+      <ellipse class="fur outline" cx="87" cy="172" rx="12.5" ry="9.5"/>
+      <ellipse class="fur outline" cx="113" cy="172" rx="12.5" ry="9.5"/>
+      <path class="detail" d="M83 175v5M91 175v5M109 175v5M117 175v5"/>
+    </g>
+
+    <g class="head-move">
+      <g class="head-pose">
+        <g class="ear-left">
+          <path class="fur outline" d="M56 72C48 46 49 25 57 22C67 22 85 34 93 43Z"/>
+          <path class="inner-ear" d="M61 60C57 46 56 34 60 32C66 33 75 39 81 45Z"/>
+        </g>
+        <g class="ear-right">
+          <path class="shade outline" d="M144 72C152 46 151 25 143 22C133 22 115 34 107 43Z"/>
+          <path class="inner-ear" d="M139 60C143 46 144 34 140 32C134 33 125 39 119 45Z"/>
+        </g>
+
+        <path class="fur" d="M100 37C135 37 156 57 156 83C156 109 131 124 100 124S44 109 44 83C44 57 65 37 100 37Z"/>
+        <path class="shade" d="M117 39.5C140 44 154 60 155.6 80C146 83 131 78 123 68C115 58 113 47 117 39.5Z"/>
+        <path class="outline no-fill" d="M100 37C135 37 156 57 156 83C156 109 131 124 100 124S44 109 44 83C44 57 65 37 100 37Z"/>
+        <path class="fur outline show-content show-sleepy show-worried" d="M92 38C91 27 100 21 108 26C102 27 100 31 101 37"/>
+
+        <ellipse class="light" cx="100" cy="101" rx="24" ry="16"/>
+        <ellipse class="cheek" cx="66" cy="99" rx="10" ry="6"/>
+        <ellipse class="cheek" cx="134" cy="99" rx="10" ry="6"/>
+        <path class="detail" d="M58 94L34 90M58 103L36 106M142 94L166 90M142 103L164 106"/>
+        <path class="nose" d="M94.5 92.5Q100 89.5 105.5 92.5Q103.5 97.5 100 98.5Q96.5 97.5 94.5 92.5Z"/>
+
+        <g class="eyes-open show-content show-worried">
+          <ellipse class="eye" cx="77" cy="82" rx="8.5" ry="10.5"/>
+          <ellipse class="eye" cx="123" cy="82" rx="8.5" ry="10.5"/>
+          <circle class="glint" cx="80" cy="77.5" r="3.4"/>
+          <circle class="glint" cx="126" cy="77.5" r="3.4"/>
+          <circle class="glint" cx="74" cy="86.5" r="1.6"/>
+          <circle class="glint" cx="120" cy="86.5" r="1.6"/>
+        </g>
+        <path class="line show-party" d="M68 86Q77 72 86 86M114 86Q123 72 132 86"/>
+        <path class="line show-sleepy" d="M68 82Q77 91 86 82M114 82Q123 91 132 82M69 84l-4 3M131 84l4 3"/>
+        <path class="line show-worried" d="M66 70Q76 69 87 62M134 70Q124 69 113 62"/>
+
+        <path class="line thin show-content" d="M100 98.5Q100 106 93 106Q88.5 106 87.5 102.5M100 98.5Q100 106 107 106Q111.5 106 112.5 102.5"/>
+        <g class="show-party">
+          <path class="mouth outline" d="M89 102Q100 100 111 102Q109 118 100 118Q91 118 89 102Z"/>
+          <path class="tongue" d="M93 112Q100 106 107 112Q104 116.5 100 116.5Q96 116.5 93 112Z"/>
+        </g>
+        <path class="line thin show-sleepy" d="M95 106Q100 110 105 106"/>
+        <path class="line thin show-worried" d="M91 110Q95.5 104.5 100 107.5Q104.5 110.5 109 105"/>
+
+        <g class="show-party">
+          <path class="hat outline" d="M81 41L99 7L118 40Q100 33 81 41Z"/>
+          <path class="hat-stripe" d="M89 27Q100 23 109 26M94 17Q99 15.5 104 17"/>
+          <circle class="pompom outline" cx="99" cy="8" r="6.5"/>
+        </g>
+      </g>
+    </g>
+
+    <path class="collar-edge" d="M71 118Q100 135 129 118"/>
+    <path class="collar" d="M71 118Q100 135 129 118"/>
+    <circle class="tag outline" cx="100" cy="135" r="9.5"/>
+    <path class="tag-heart" d="M100 140.5C96 138 93.8 135.6 94.4 133.2C95 130.8 98.4 130.4 100 133C101.6 130.4 105 130.8 105.6 133.2C106.2 135.6 104 138 100 140.5Z"/>
+
+    <g class="show-party">
+      <path class="fur outline" d="M70 142C50 140 34 124 34 108C34 97 49 95 53 105C56 116 66 125 78 128Z"/>
+      <path class="fur outline" d="M130 142C150 140 166 124 166 108C166 97 151 95 147 105C144 116 134 125 122 128Z"/>
+      <ellipse class="inner-ear" cx="43" cy="107" rx="4.5" ry="5.5"/>
+      <ellipse class="inner-ear" cx="157" cy="107" rx="4.5" ry="5.5"/>
+    </g>
+  </g>
+
+  <g class="show-sleepy">
+    <path class="zzz z1" d="M154 52h10l-10 11h10"/>
+    <path class="zzz z2" d="M167 31h13l-13 14h13"/>
+    <path class="zzz z3" d="M180 6h15l-15 17h15"/>
+  </g>
+  <path class="drop outline show-worried" d="M165 52C165 52 156 64 156 70C156 75 160 78 165 78S174 75 174 70C174 64 165 52 165 52Z"/>
+  <g class="show-party">
+    <path class="sparkle s1" d="M24 38Q27 50 37 53Q27 56 24 68Q21 56 11 53Q21 50 24 38Z"/>
+    <path class="sparkle s2" d="M174 54Q176 62 183 64Q176 66 174 74Q172 66 165 64Q172 62 174 54Z"/>
+    <path class="sparkle s3" d="M22 128Q24 135 30 137Q24 139 22 146Q20 139 14 137Q20 135 22 128Z"/>
+    <path class="sparkle s4" d="M182 106Q184 113 190 115Q184 117 182 124Q180 117 174 115Q180 113 182 106Z"/>
+  </g>
+</svg>

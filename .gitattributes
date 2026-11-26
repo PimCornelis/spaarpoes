@@ -1,0 +1,3 @@
+# Store text files with the same line endings on every computer.
+* text=auto eol=lf
+*.png binary
