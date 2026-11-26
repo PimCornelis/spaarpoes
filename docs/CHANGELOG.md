@@ -2,6 +2,28 @@
 
 Newest first.
 
+## 2026-11-26 - Stage 6, part 2: published and checked from the PC
+
+**Address:** https://pimcornelis.github.io/spaarpoes/ (read from GitHub's own publishing record for the
+repo, state "success"; not guessed). GitHub Pages, branch `main`, folder root.
+
+Checked against GitHub's public record and the live address:
+
+- The repo is public. Its 62 files have the same contents as on the PC. `CLAUDE.local.md` is not in it,
+  and asking for it at the web address answers "not found".
+- The one commit carries GitHub's hidden (`noreply`) email address.
+- All 42 files a phone needs are served, identical to the PC's, with fitting file types (the manifest as
+  `application/manifest+json`).
+
+Checked in Chrome on the PC: the offline copy installed with all 41 listed files; three test entries
+were still there after a reload, and after closing the tab and opening a new one; the statistics page
+drew, also for 6 months (not looked at before); no error was logged on a reload and no warning showed.
+
+**Not checked yet:** the live app with the PC's network switched off (offline was checked with a local
+web server switched off), and everything on the phones: installing, opening without a network, the
+storage-protection answer, sharing a back-up, the reduced-motion setting, the chime, and a later version
+replacing this one.
+
 ## 2026-11-26 - Stage 6, part 1: install files, offline, PC checks (not yet published)
 
 The owner said to start stage 6, so the build goes on past the kitten; no verdict from the app's user is
