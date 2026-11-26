@@ -2,6 +2,56 @@
 
 Newest first.
 
+## 2026-11-26 - A tapped tab answers at once
+
+**Why:** the owner reports that the app lags when switching tabs. In the code, the tapped tab only lit up
+together with the new screen, so until the whole screen was built a tap showed little or nothing.
+
+**Changed** (`js/ui/app.js`, `styles.css`):
+- On a change of screen the tapped tab lights up and is drawn first; the new screen is built right after.
+- The bottom menu is made once and stays; only the screen above it is replaced.
+- A tab also lights up while the finger is on it.
+
+**Checked on the PC** (windowless Edge, processor slowed 4 times, 40 taps): before the change the tab
+never lit up ahead of the new screen (0 of 40); after it, the browser's own record shows a picture sent
+for drawing between "tab lit" and "new screen in place" for 40 of 40 taps. All 101 tests pass (they do
+not cover screen code). In the PC's preview browser every tab switch ended on the right screen with the
+right tab lit, also after three quick taps; adding an expense and opening a pot and going back worked,
+with no console errors.
+
+**Not shown:** that the new screen arrives sooner. It does not look any faster in the timings, which vary
+a lot from run to run. Not checked on a phone, including the light under the finger, so whether the
+lag now feels better is unknown. The cause of the lag is still not established.
+
+The preview browser first seemed to show a 0.7 second wait on every tap, also with the app's code
+switched off. The preview was hidden, where a page draws slowly, so those timings do not count.
+
+Offline version: `spaarpoes-918be91c8161`.
+
+## 2026-11-26 - First phone test, and a look into slow tab changes (no app change)
+
+The owner installed the app through Chrome on a phone and reports that everything worked, but changing
+tabs sometimes lags. Which steps were done, and what the settings said about protected storage, was not
+reported. No test on the app user's iPhone has been reported.
+
+**Measured on the PC**, not on a phone: windowless Edge with a throwaway profile, processor slowed 4
+times, phone-sized screen, example data, 8 rounds, from lifting the finger to the new screen being drawn.
+Middle values: Vast 81 ms, Instellingen 79 ms, Thuis 121 ms, Cijfers 196 ms. Single visits took much
+longer, mostly early in a run (up to 0.8 s for Cijfers). Timings vary a lot between runs.
+
+- The app's own code was a small share of the processor time in a profile; most was the browser's own
+  work. That profile was taken while leftover test processes were running (see below).
+- **Tried and rejected:** drawing the lower parts of Cijfers only when scrolled to
+  (`content-visibility`). Taking turns with the current version it made no difference: 193 against
+  193 ms on repeat visits, 236 against 240 ms on a first visit.
+- Removing the colour blending on the chart's tap areas showed no clear difference either, but that run
+  was disturbed too.
+- Found in the measuring tool itself: stopping Edge's first process left its other processes running,
+  which disturbed the middle runs. They were closed, and the figures above are from a run without them.
+
+**Result:** no cause of the phone's lag is established, so the app was not changed. Next: learn which
+tab, and whether it happens on every visit or only the first one after opening.
+
 ## 2026-11-26 - Stage 6, part 2: published and checked from the PC
 
 **Address:** https://pimcornelis.github.io/spaarpoes/ (read from GitHub's own publishing record for the

@@ -2,7 +2,7 @@
 // (This is a "service worker". It never touches the saved money data.)
 
 // <written by docs/stamp-sw.mjs - run it after changing any app file>
-const VERSION = 'spaarpoes-be713f5a36f3';
+const VERSION = 'spaarpoes-918be91c8161';
 const FILES = [
   './',
   'assets/icons/apple-touch-icon.png',

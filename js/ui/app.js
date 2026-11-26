@@ -118,16 +118,27 @@ async function start() {
     refresh: () => render(),
   };
 
+  // The bottom menu is made once and stays; only the screen above it is replaced.
+  const tabLinks = TABS.map((tab) => h('a', { href: tab.href },
+    h('span', { 'aria-hidden': 'true' }, tab.icon),
+    h('span', {}, tab.label)));
+  const nav = h('nav', { class: 'tabs', 'aria-label': t.nav.label }, tabLinks);
+
+  function lightTab(name) {
+    TABS.forEach((tab, i) => {
+      if (tab.screens.includes(name)) tabLinks[i].setAttribute('aria-current', 'page');
+      else tabLinks[i].removeAttribute('aria-current');
+    });
+  }
+
   function render() {
     const current = route();
     const sameScreen = shownHash === window.location.hash;
     const scrolled = window.scrollY;
     const screen = SCREENS[current.name](ctx, current);
-    const nav = h('nav', { class: 'tabs', 'aria-label': t.nav.label },
-      TABS.map((tab) => h('a', { href: tab.href, 'aria-current': tab.screens.includes(current.name) ? 'page' : null },
-        h('span', { 'aria-hidden': 'true' }, tab.icon),
-        h('span', {}, tab.label))));
-    root.replaceChildren(screen, nav);
+    lightTab(current.name);
+    if (nav.isConnected) root.querySelector('main').replaceWith(screen);
+    else root.replaceChildren(screen, nav);
     document.documentElement.classList.toggle('reduce-motion', store.state.settings.reduceMotion);
     window.scrollTo(0, sameScreen ? scrolled : 0);
     shownHash = window.location.hash;
@@ -154,7 +165,15 @@ async function start() {
   // Sound may only start from a tap, and a party can come just after one.
   document.addEventListener('pointerup', () => { if (store.state.settings.sound) armSound(); });
   root.addEventListener('input', () => { typing = true; });
-  window.addEventListener('hashchange', render);
+  // Building a screen takes a moment on a phone. So the tapped tab lights up and is drawn first, and
+  // the screen is built right after that picture. (A frame callback runs just before a picture is
+  // drawn, and the timer inside it just after.)
+  let nextRender = 0;
+  window.addEventListener('hashchange', () => {
+    lightTab(route().name);
+    cancelAnimationFrame(nextRender);
+    nextRender = requestAnimationFrame(() => setTimeout(render));
+  });
   document.addEventListener('visibilitychange', async () => {
     if (document.visibilityState !== 'visible') return;
     try {

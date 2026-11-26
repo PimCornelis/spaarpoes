@@ -338,6 +338,8 @@ ul.pots {
   text-decoration: none;
 }
 
+/* a tab answers while the finger is still on it */
+.tabs a:active,
 .tabs a[aria-current='page'] {
   background: var(--color-accent-soft);
   color: var(--color-ink);
